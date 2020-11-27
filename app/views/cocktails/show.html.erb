@@ -1,0 +1,26 @@
+<div class="container  m-8">
+  <div class="row">
+    <h1>Cocktail</h1>
+    <h3 class=" p-3 text-align-center">
+      <%= @cocktail.name %>
+    </h3>
+    <div class="col-3 text-justify">
+      <% @cocktail.doses.each do |d| %>
+        <h6>
+          <%= d.ingredient.name %>
+          :
+          <%= d.description %>
+        </h6>
+        <p><%= link_to "Delete", doses_destroy_path(d.id), method: :delete %></p>
+        <% end %>
+    </div>
+    <div>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient %>
+        <%= f.input :description %>
+        <%= f.submit "Shake it!", class: "btn btn-success" %>
+      <% end %>
+      <%= link_to "Go Back", cocktails_path %>
+    </div>
+  </div>
+</div>

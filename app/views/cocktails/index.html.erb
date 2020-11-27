@@ -1,0 +1,10 @@
+<div class="container mt-8">
+  <h1 class="m-8">Cocktails</h1>
+  <div class="row">
+    <% @cocktails.each do |cock| %>
+      <ul class="text-decoration-none">
+        <%= link_to cock.name, cocktail_path(cock) %>
+      </ul>
+    <% end %>
+  </div>
+</div>
