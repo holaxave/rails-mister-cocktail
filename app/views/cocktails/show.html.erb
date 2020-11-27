@@ -3,6 +3,7 @@
     <h1>Cocktail</h1>
     <h3 class=" p-3 text-align-center">
       <%= @cocktail.name %>
+      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
     </h3>
     <div class="col-3 text-justify">
       <% @cocktail.doses.each do |d| %>
